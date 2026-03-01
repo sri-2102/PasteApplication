@@ -6,13 +6,15 @@ function App(){
   const [maxViews, setMaxViews] = useState('');
   const [result, setResult] = useState(null);
 
+  const API_BASE = process.env.REACT_APP_API_BASE || '';
+
   async function createPaste(e){
     e.preventDefault();
     const body = { content };
     if (ttl) body.ttl_seconds = parseInt(ttl,10);
     if (maxViews) body.max_views = parseInt(maxViews,10);
     try {
-      const res = await fetch('/api/pastes', {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(body)});
+      const res = await fetch(`${API_BASE}/api/pastes`, {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(body)});
       const data = await res.json().catch(()=>({}));
       if (res.ok) setResult(data);
       else setResult({error: data.error || (`Server returned ${res.status}`)});
