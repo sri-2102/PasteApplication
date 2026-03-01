@@ -1,0 +1,7 @@
+com\example\paste\controller\CreatePasteRequest.class
+com\example\paste\PasteApplication.class
+com\example\paste\service\PasteService.class
+com\example\paste\model\Paste.class
+com\example\paste\repo\PasteRepository.class
+com\example\paste\controller\PasteDto.class
+com\example\paste\controller\PasteController.class
